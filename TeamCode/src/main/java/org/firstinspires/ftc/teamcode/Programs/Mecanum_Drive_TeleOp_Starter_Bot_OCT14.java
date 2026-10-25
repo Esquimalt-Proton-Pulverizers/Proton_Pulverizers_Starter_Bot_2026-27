@@ -49,7 +49,7 @@ public class Mecanum_Drive_TeleOp_Starter_Bot_OCT14 extends OpMode {
     private VoltageSensor battery;
     private final ElapsedTime timer = new ElapsedTime();
 
-    private double targetRPM = 1200;
+    private double targetRPM = 4550;
     private double targetTPS;
 
 
@@ -153,7 +153,14 @@ public class Mecanum_Drive_TeleOp_Starter_Bot_OCT14 extends OpMode {
 
         // Prevent reversing by clamping lower bound to 0.0
         double commandedPower = Range.clip(feedForward + proportional, 0.0, 1.0);
-        shooterMotor.setPower(commandedPower);
+
+        if(gamepad1.right_trigger>0.1) {
+            shooterMotor.setPower(commandedPower);
+        }else{
+            shooterMotor.setPower(0);
+        }
+
+
 
 
 
