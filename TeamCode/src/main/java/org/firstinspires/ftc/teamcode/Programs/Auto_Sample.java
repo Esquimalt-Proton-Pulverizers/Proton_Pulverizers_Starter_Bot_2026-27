@@ -31,15 +31,17 @@ public class Auto_Sample extends OpMode {
         rearRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rearLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
+        frontLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        rearLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
     }
 
     @Override
     public void loop() {
-        frontLeftMotor.setPower((-0.5));
+        frontLeftMotor.setPower(0.5);
         frontRightMotor.setPower(0.5);
-        rearLeftMotor.setPower((-0.5));
+        rearLeftMotor.setPower(0.5);
         rearRightMotor.setPower(0.5);
 
 
@@ -48,6 +50,7 @@ public class Auto_Sample extends OpMode {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
         frontLeftMotor.setPower(0);
         frontRightMotor.setPower(0);
         rearLeftMotor.setPower(0);
